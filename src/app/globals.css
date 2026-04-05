@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8efe5;
+  --surface: #fff7ef;
+  --card: #ffffff;
+  --foreground: #1f2530;
+  --muted: #6c7280;
+  --accent: #134e4a;
+  --accent-soft: #d9efe4;
+  --danger: #991b1b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 20%, #fde68a 0%, #f8efe5 40%),
+    radial-gradient(circle at 80% 10%, #c7d2fe 0%, transparent 36%),
+    linear-gradient(180deg, #f8efe5 0%, #f5ece1 100%);
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), sans-serif;
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 2rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.hero {
+  background: linear-gradient(120deg, #0f766e 0%, #134e4a 65%, #0b3f3b 100%);
+  color: #f1f5f9;
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 24px 40px rgba(19, 78, 74, 0.22);
+}
+
+.hero h1 {
+  font-size: clamp(1.4rem, 2.5vw, 2.15rem);
+  line-height: 1.2;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(19, 78, 74, 0.12);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(24, 24, 27, 0.06);
+}
+
+.label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.runs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.runs-table th,
+.runs-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(19, 78, 74, 0.1);
+  vertical-align: top;
+}
+
+.runs-table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #0f172a;
+}
+
+.status-pill {
+  display: inline-flex;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.2rem 0.62rem;
+}
+
+.status-success {
+  color: #14532d;
+  background: #dcfce7;
+}
+
+.status-partial {
+  color: #854d0e;
+  background: #fef3c7;
+}
+
+.status-error {
+  color: #7f1d1d;
+  background: #fee2e2;
+}
+
+.mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.82rem;
+}
+
+.error-list {
+  margin-top: 0.55rem;
+  color: var(--danger);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 900px) {
+  .meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .runs-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
